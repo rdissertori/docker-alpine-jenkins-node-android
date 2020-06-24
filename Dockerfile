@@ -34,5 +34,5 @@ RUN apk add --update --no-cache --virtual virtual_packages curl build-base \
   && chmod 777 -R $ANDROID_HOME \
   && apk del virtual_packages \
   && rm -rf /tmp/* \
-  && chown -R jenkins:jenkins /home/jenkins
+  && chown -R jenkins:jenkins /home/jenkins /opt
 USER jenkins
