@@ -1,0 +1,7 @@
+version: '3.8'
+services:
+  alpine-jenkins-node-android:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    image: rdissertori/alpine-jenkins-node-android:1.0
