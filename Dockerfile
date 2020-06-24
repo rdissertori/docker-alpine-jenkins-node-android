@@ -13,7 +13,7 @@ ENV PATH ${PATH}:${KOTLIN_HOME}/bin:${ANDROID_HOME}/emulator:${ANDROID_HOME}/too
 USER root
 COPY ./install.sh /tmp/install.sh
 RUN apk add --update --no-cache --virtual virtual_packages curl build-base \
-  && apk add --update --no-cache zip expect npm nodejs git gradle \
+  && apk add --update --no-cache zip expect git gradle \
   && cd /opt \
   && curl -Ls ${KOTLIN_DOWNLOADURL} --output kotlin.zip \
   && unzip -q kotlin.zip \
@@ -26,11 +26,6 @@ RUN apk add --update --no-cache --virtual virtual_packages curl build-base \
   && cd /home/jenkins \
   && chmod +x /tmp/install.sh && /tmp/install.sh \
   && ln -s $ANDROID_HOME/build-tools/*/zipalign /usr/bin/zipalign \
-  && npm install -g cordova \
-  && npm install -g ionic \
-  && npm install -g bower \
-  && npm install -g gulp \
-  && npm install -g n \
   && chmod 777 -R $ANDROID_HOME \
   && apk del virtual_packages \
   && rm -rf /tmp/* \
