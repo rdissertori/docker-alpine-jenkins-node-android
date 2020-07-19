@@ -13,7 +13,7 @@ ENV PATH ${PATH}:${KOTLIN_HOME}/bin:${ANDROID_HOME}/emulator:${ANDROID_HOME}/too
 USER root
 COPY ./install.sh /tmp/install.sh
 RUN apk add --update --no-cache --virtual virtual_packages build-base \
-  && apk add --update --no-cache zip expect git gradle curl \
+  && apk add --update --no-cache zip expect gradle curl \
   && cd /opt \
   && curl -Ls ${KOTLIN_DOWNLOADURL} --output kotlin.zip \
   && unzip -q kotlin.zip \
